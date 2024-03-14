@@ -1,28 +1,45 @@
 package quickhw;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        int qty = 20;
-        double pPerUnit = 5.0;
-        double miles = 25.0;
         double totalFee = 0;
 
-        if(miles <= 4) {
+        Scanner scan = new Scanner((System.in));
+
+        System.out.println("What are you buying?");
+        String product = scan.next();
+
+        System.out.println("What is the price?");
+        int price = scan.nextInt();
+
+        System.out.println("How many would you like?");
+        int count = scan.nextInt();
+
+        System.out.println("How far will we be delivering");
+        double miles = scan.nextInt();
+
+        if(miles <= 4 && miles >= 0 ) {
             totalFee = 2.0;
-        }else if (miles <= 15 ) {
+        }else if (miles <= 15 && miles > 4) {
             totalFee = 5.0;
-        } else if (miles <= 25) {
+        } else if (miles <= 25 && miles > 15) {
             totalFee = 10.0;
-        }else if (miles <= 50){
+        }else if (miles <= 50 && miles > 25){
                totalFee = 15.0;
         }else if (miles > 50){
                totalFee = 20.0;}
 
-//            String rice;
-//            String productName = rice;
-            double totalCost = (pPerUnit * qty) + totalFee;
-            System.out.println("Your total is " + totalCost );
+        double endTotal = (count * price) + totalFee;
+        System.out.println("Thank you, your " + product + " will be "+ endTotal);
 
+//          what type of product are you buying?
+//          what is the price?
+//          what is the qty?
+//          how far away / distance do you want it delivered to?
+          /*  double totalCost = (pPerUnit * qty) + totalFee;
+            System.out.println("Your total is " + totalCost );*/
             }
         }
 
